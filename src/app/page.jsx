@@ -148,12 +148,7 @@ export default function HomePage() {
                 {/* Featured Houses Section */}
                 <section className="section bg-white">
                     <div className="container">
-                        <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: '1fr 2fr',
-                            gap: 'var(--space-16)',
-                            alignItems: 'center'
-                        }}>
+                        <div className="layout-split">
                             <div>
                                 <SectionHeader
                                     eyebrow="Your Community"
