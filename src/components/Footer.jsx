@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Twitter, Linkedin, Youtube, Mail } from 'lucide-react';
 
 const quickLinks = [
@@ -29,7 +30,7 @@ export default function Footer() {
                 <div className="footer-grid">
                     <div className="footer-brand">
                         <Link href="/" className="footer-logo">
-                            <span className="navbar-logo-icon">SA</span>
+                            <Image src="/logo.png" alt="IITM BS" width={40} height={40} style={{ objectFit: 'contain' }} />
                             <span>Student Activities</span>
                         </Link>
                         <p className="footer-description">

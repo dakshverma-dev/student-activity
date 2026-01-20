@@ -45,7 +45,9 @@ const pillars = [
     {
         icon: <HomeIcon size={28} />,
         title: '12 Houses',
-        description: 'Named after India\'s magnificent forests, each house has members from 10 regions across India and abroad.'
+        description: 'Named after India\'s forests — Kaziranga, Corbett, Nilgiri, Sundarbans & more. Compete for points, earn glory, and become champions.',
+        link: '/houses',
+        linkText: 'Explore Houses'
     },
     {
         icon: <Users size={28} />,
@@ -72,14 +74,14 @@ export default function HomePage() {
             <main className="pt-nav">
                 {/* Hero Section */}
                 <HeroSection
-                    eyebrow="IITM BS 2025-26"
-                    title="Student"
-                    titleAccent="Activities"
-                    description="The non-academic ecosystem for IITM BS students. Join houses named after India's forests, explore 21+ societies, and participate in Paradox — our flagship festival."
-                    primaryCta="Explore Houses"
+                    eyebrow="ADMISSIONS OPEN FOR 2026"
+                    titleAccent="Student"
+                    titleSuffix="Experience."
+                    description="Join a vibrant ecosystem where academic rigor meets creative freedom. More than just a degree— it's a global community."
+                    primaryCta="Explore Campus Life"
                     primaryCtaHref="/houses"
-                    secondaryCta="View Societies"
-                    secondaryCtaHref="/societies"
+                    secondaryCta="Watch the Film"
+                    secondaryCtaHref="/paradox"
                 />
 
                 {/* Overview Section */}
@@ -100,6 +102,11 @@ export default function HomePage() {
                                     </div>
                                     <h3 className="feature-title">{pillar.title}</h3>
                                     <p className="feature-text">{pillar.description}</p>
+                                    {pillar.link && (
+                                        <Link href={pillar.link} className="feature-link">
+                                            {pillar.linkText} <ArrowRight size={14} />
+                                        </Link>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -145,34 +152,71 @@ export default function HomePage() {
                     </div>
                 </section>
 
-                {/* Featured Houses Section */}
+                {/* The Scoop Section */}
                 <section className="section bg-white">
                     <div className="container">
-                        <div className="layout-split">
-                            <div>
-                                <SectionHeader
-                                    eyebrow="Your Community"
-                                    title="IITM BS Houses"
-                                    subtitle="Named after India's forests and national parks. Be part of a house, earn points, and compete for the championship."
-                                />
-                                <Link href="/houses" className="btn btn-primary">
-                                    Explore All 12 Houses <ArrowRight size={16} />
-                                </Link>
+                        <div className="scoop-header">
+                            <div className="scoop-header-left">
+                                <span className="section-eyebrow">WHAT WE DO</span>
+                                <h2 className="scoop-title">
+                                    The Scoop:<br />
+                                    More Than Just Code.
+                                </h2>
+                            </div>
+                            <p className="scoop-description">
+                                Dive into a world of clubs, societies, and houses designed to foster holistic growth and lifelong friendships.
+                            </p>
+                        </div>
+
+                        <div className="scoop-grid">
+                            {/* Main Card - Student Clubs */}
+                            <div className="scoop-card scoop-card-main">
+                                <img src="/student-clubs.png" alt="Student Clubs" className="scoop-card-main-image" />
+                                <div className="scoop-card-overlay">
+                                    <span className="scoop-badge">Featured</span>
+                                    <h3 className="scoop-card-title-overlay">Student Clubs</h3>
+                                    <p className="scoop-card-text-overlay">
+                                        From debate to dance, find your tribe. With over 50 active clubs, your passion has a home here.
+                                    </p>
+                                    <Link href="/societies" className="scoop-link-overlay">
+                                        Browse Clubs <ArrowRight size={14} />
+                                    </Link>
+                                </div>
                             </div>
 
-                            <div className="grid grid-cols-2" style={{ gap: 'var(--space-5)' }}>
-                                {featuredHouses.map((house) => (
-                                    <HouseCard
-                                        key={house.name}
-                                        name={house.name}
-                                        tagline={house.tagline}
-                                        location={house.location}
-                                    />
-                                ))}
+                            {/* Right Column */}
+                            <div className="scoop-right">
+                                {/* Tech Societies Card */}
+                                <div className="scoop-card scoop-card-dark">
+                                    <div className="scoop-card-icon">⚙️</div>
+                                    <img src="/tech-societies.png" alt="Tech" className="scoop-card-bg-image" />
+                                    <div className="scoop-card-content">
+                                        <h3 className="scoop-card-title-light">Tech Societies</h3>
+                                        <p className="scoop-card-text-light">
+                                            Pushing the boundaries of innovation through collaborative projects.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* House System Card */}
+                                <div className="scoop-card scoop-card-light">
+                                    <h3 className="scoop-card-title">House System</h3>
+                                    <p className="scoop-card-text">
+                                        A sense of belonging and friendly competition. Which house will you champion?
+                                    </p>
+                                    <div className="scoop-house-colors">
+                                        <span className="scoop-color scoop-color-red">K</span>
+                                        <span className="scoop-color scoop-color-blue">C</span>
+                                        <span className="scoop-color scoop-color-green">N</span>
+                                        <span className="scoop-color scoop-color-yellow">S</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
+
+
 
                 {/* Quick Links Section */}
                 <section className="section" style={{ background: 'var(--color-off-white)' }}>

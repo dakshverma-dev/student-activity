@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, Home, Users, Calendar, FileText, CheckCircle } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 
 const navLinks = [
     { href: '/', label: 'Home' },
@@ -16,6 +16,8 @@ const navLinks = [
 
 export default function Navbar() {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const toggleMobileNav = () => {
         setIsMobileNavOpen(!isMobileNavOpen);
@@ -23,6 +25,24 @@ export default function Navbar() {
 
     const closeMobileNav = () => {
         setIsMobileNavOpen(false);
+    };
+
+    const toggleSearch = () => {
+        setIsSearchOpen(!isSearchOpen);
+        if (!isSearchOpen) {
+            // Focus the input when opening
+            setTimeout(() => {
+                document.getElementById('navbar-search-input')?.focus();
+            }, 100);
+        }
+    };
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            // For now, redirect to a search results page or filter
+            window.location.href = `/societies?search=${encodeURIComponent(searchQuery)}`;
+        }
     };
 
     return (
@@ -43,9 +63,32 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    <Link href="/verify" className="btn btn-primary btn-sm navbar-cta">
-                        Verify Certificate
-                    </Link>
+                    <div className="navbar-actions">
+                        {/* Search */}
+                        <div className={`navbar-search ${isSearchOpen ? 'open' : ''}`}>
+                            <form onSubmit={handleSearch} className="navbar-search-form">
+                                <input
+                                    id="navbar-search-input"
+                                    type="text"
+                                    placeholder="Search houses, societies, events..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="navbar-search-input"
+                                />
+                            </form>
+                            <button
+                                className="navbar-search-btn"
+                                onClick={toggleSearch}
+                                aria-label="Toggle search"
+                            >
+                                {isSearchOpen ? <X size={18} /> : <Search size={18} />}
+                            </button>
+                        </div>
+
+                        <Link href="/verify" className="btn btn-primary btn-sm navbar-cta">
+                            Verify Certificate
+                        </Link>
+                    </div>
 
                     <button
                         className="navbar-toggle"
@@ -73,6 +116,20 @@ export default function Navbar() {
                     <button className="btn-icon" onClick={closeMobileNav} aria-label="Close navigation">
                         <X size={24} />
                     </button>
+                </div>
+
+                {/* Mobile Search */}
+                <div className="mobile-search">
+                    <form onSubmit={handleSearch} className="mobile-search-form">
+                        <Search size={18} className="mobile-search-icon" />
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="mobile-search-input"
+                        />
+                    </form>
                 </div>
 
                 <div className="mobile-nav-links">
