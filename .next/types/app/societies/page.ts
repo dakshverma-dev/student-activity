@@ -1,4 +1,4 @@
-// File: D:\IIT MADRAS\ui\student-activities\src\app\societies\page.jsx
+// File: D:\IIT MADRAS\ui\student-activity\src\app\societies\page.jsx
 import * as entry from '../../../../src/app/societies/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

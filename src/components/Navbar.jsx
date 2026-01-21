@@ -110,7 +110,7 @@ export default function Navbar() {
             <div className={`mobile-nav ${isMobileNavOpen ? 'open' : ''}`}>
                 <div className="mobile-nav-header">
                     <Link href="/" className="navbar-logo" onClick={closeMobileNav}>
-                        <span className="navbar-logo-icon">SA</span>
+                        <Image src="/logo.png" alt="IITM BS" width={40} height={40} style={{ objectFit: 'contain' }} />
                         <span>Student Activities</span>
                     </Link>
                     <button className="btn-icon" onClick={closeMobileNav} aria-label="Close navigation">

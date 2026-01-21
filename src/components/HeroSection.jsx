@@ -105,23 +105,25 @@ export default function HeroSection({
             </section>
 
             {/* Marquee Banner */}
-            <div className="hero-marquee-new">
-                <div className="hero-marquee-track-new">
-                    <div className="hero-marquee-content-new">
-                        {['INNOVATE', 'CREATE', 'INSPIRE', 'LEAD', 'INNOVATE', 'CREATE', 'INSPIRE', 'LEAD'].map((word, index) => (
-                            <span key={index} className="hero-marquee-item-new">
-                                <span className="hero-marquee-star">★</span>
-                                {word}
-                            </span>
-                        ))}
-                    </div>
-                    <div className="hero-marquee-content-new">
-                        {['INNOVATE', 'CREATE', 'INSPIRE', 'LEAD', 'INNOVATE', 'CREATE', 'INSPIRE', 'LEAD'].map((word, index) => (
-                            <span key={index} className="hero-marquee-item-new">
-                                <span className="hero-marquee-star">★</span>
-                                {word}
-                            </span>
-                        ))}
+            <div className="hero-marquee-wrapper">
+                <div className="hero-marquee-new">
+                    <div className="hero-marquee-track-new">
+                        <div className="hero-marquee-content-new">
+                            {['INNOVATE', 'CREATE', 'INSPIRE', 'LEAD', 'INNOVATE', 'CREATE', 'INSPIRE', 'LEAD'].map((word, index) => (
+                                <span key={index} className="hero-marquee-item-new">
+                                    <span className="hero-marquee-star">★</span>
+                                    {word}
+                                </span>
+                            ))}
+                        </div>
+                        <div className="hero-marquee-content-new">
+                            {['INNOVATE', 'CREATE', 'INSPIRE', 'LEAD', 'INNOVATE', 'CREATE', 'INSPIRE', 'LEAD'].map((word, index) => (
+                                <span key={index} className="hero-marquee-item-new">
+                                    <span className="hero-marquee-star">★</span>
+                                    {word}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
